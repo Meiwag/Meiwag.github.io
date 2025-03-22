@@ -3,7 +3,7 @@
     --textcolor2: rgb(196, 255, 243);
     --textcolor3: rgb(155, 244, 225);
     font-family: Calibri;
-    font-size: 16px;
+    font-size: 24px;
     margin: 0%;
 }
 
@@ -14,11 +14,13 @@ body {
 #siteheader {
     background-color: rgb(27, 149, 78);
     width: 100vw;
-    height: .5rem;
+    height: 2rem;
 }
 
 #sitelogo {
     position: relative;
+    left: 0%;
+    top: 0%;
     height: 100%;
     width: auto;
 }
