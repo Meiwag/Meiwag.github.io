@@ -1,4 +1,4 @@
-:root {
+* {
     --textcolor1: rgb(255, 255, 255);
     --textcolor2: rgb(196, 255, 243);
     --textcolor3: rgb(155, 244, 225);
@@ -7,25 +7,76 @@
     margin: 0%;
 }
 
+
 body {
-    background-color: rgb(15, 104, 52);
+    background-color: rgb(33, 36, 36);
 }
 
-#siteheader {
-    background-color: rgb(27, 149, 78);
+.siteheader {
     width: 100vw;
     height: 2rem;
+    position: absolute;
+    background-color: rgb(26, 79, 67);
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.siteheader::before, .siteheader::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: calc( 100% + 0.12rem );
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background: conic-gradient(from var(--angle) at 15% -59%,
+        rgb(35, 233, 203),
+        rgb(40, 202, 137),
+        rgb(106, 230, 172),
+        rgb(35, 233, 203)
+    );
+    
+    z-index: -1;
+    animation: 16s header-anim linear infinite;
+}
+
+.siteheader::before {
+    filter: blur(.3rem);
+    opacity: .5;
+}
+
+
+
+
+@keyframes header-anim {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}
+
+
+#logocontainer {
+    height: 100%;
+    float: left;
+    display:flex;
+    vertical-align: middle;
 }
 
 #sitelogo {
-    position: static;
-    height: 25%;
+    height: 100%;
     width: auto;
 }
 
 #sitetitle {
     color: var(--textcolor1);
-    text-align: left;
+    text-align: center;
     font-size: 1.5rem;
-    position: relative;
 }
