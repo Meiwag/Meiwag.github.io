@@ -26,7 +26,6 @@ body {
 }
 
 .siteheader::before, .siteheader::after {
-    content: '';
     position: absolute;
     width: 100%;
     height: calc( 100% + 0.12rem );
