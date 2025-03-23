@@ -2,21 +2,17 @@
     --textcolor1: rgb(255, 255, 255);
     --textcolor2: rgb(196, 255, 243);
     --textcolor3: rgb(155, 244, 225);
+    --blursize: 2rem;
     font-family: Calibri;
-    font-size: 24px;
+    font-size: 20px;
     margin: 0%;
+    box-sizing: border-box;
 }
 
 
 body {
     background-color: rgb(33, 36, 36);
-}
-
-.siteheader {
-    width: 100vw;
-    height: 2rem;
-    position: absolute;
-    background-color: rgb(26, 79, 67);
+    overflow-x: hidden;
 }
 
 @property --angle {
@@ -25,31 +21,59 @@ body {
     inherits: false;
 }
 
-.siteheader::before, .siteheader::after {
+header {
+    width: 100vw;
+    height: max( 2rem , 4.5vh );
+    position: relative;
+    background-color: rgb(26, 79, 67);
+}
+
+header::before , header::after {
+    content: "";
     position: absolute;
-    width: 100%;
-    height: calc( 100% + 0.12rem );
-    top: 50%;
+    width: calc( var(--blursize)*4 + 100% );
+    height: 100%;
     left: 50%;
-    translate: -50% -50%;
-    background: conic-gradient(from var(--angle) at 15% -59%,
+    top: 0px;
+    translate: -50% 0%;
+
+    background: conic-gradient(from var(--angle) at 50% -50%,
         rgb(35, 233, 203),
         rgb(40, 202, 137),
         rgb(106, 230, 172),
+        rgb(0, 236, 201),
         rgb(35, 233, 203)
     );
     
+
+    padding-bottom: 0.06rem;
     z-index: -1;
-    animation: 16s header-anim linear infinite;
+    animation: 20s header-anim linear infinite;
 }
 
-.siteheader::before {
-    filter: blur(.3rem);
-    opacity: .5;
+header::after {
+    filter: blur( var(--blursize) );
+    opacity: 0.6;
 }
 
 
+header div {
+    position: relative;
+    height: 100%;
+    display: flex;
+}
 
+header div img {
+    height: 100%;
+}
+
+
+header div h1 {
+    color: var(--textcolor1);
+    text-align: center;
+    font-size: calc(100%*1.5);
+    margin: auto 0%;
+}
 
 @keyframes header-anim {
     from {
@@ -59,23 +83,4 @@ body {
     to {
         --angle: 360deg;
     }
-}
-
-
-#logocontainer {
-    height: 100%;
-    float: left;
-    display:flex;
-    vertical-align: middle;
-}
-
-#sitelogo {
-    height: 100%;
-    width: auto;
-}
-
-#sitetitle {
-    color: var(--textcolor1);
-    text-align: center;
-    font-size: 1.5rem;
 }
