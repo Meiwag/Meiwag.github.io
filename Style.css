@@ -11,7 +11,7 @@
 
 
 body {
-    background-color: rgb(33, 36, 36);
+    background-color: rgb(25, 30, 30);
     overflow-x: hidden;
 }
 
@@ -28,14 +28,14 @@ header {
     background-color: rgb(27, 89, 68);
 }
 
-.header-glow , .header-outline {
+header::before {
+    content: "";
     position: absolute;
-    width: calc( var(--blursize)*4 + 100% );
+    width: 100%;
     height: calc( 100% + 0.1rem );
-    left: 50%;
     top: 0%;
-    translate: -50% 0%;
-
+    left: 0%;
+    z-index: -1;
     background: conic-gradient(from var(--angle) at 50% -50%,
         rgb(35, 233, 203),
         rgb(40, 202, 137),
@@ -44,32 +44,29 @@ header {
         rgb(35, 233, 203)
     );
 
-    z-index: -1;
     animation: 20s header-anim linear infinite;
 }
 
-.header-glow {
-    filter: blur( var(--blursize) );
-    opacity: 0.4;
-}
 
 
 header div {
-    position: relative;
+    position: absolute;
     height: 100%;
     display: flex;
 }
 
 header div img {
+    height: max( 2rem , 3.8vh );
     aspect-ratio: 1;
     padding: 0.16rem;
+    margin: auto;
 }
 
 
 header div h1 {
     color: var(--textcolor1);
     text-align: center;
-    font-size: calc(100%*1.5);
+    font-size: max( 1.5rem , 3.5vh );
     margin: auto 0%;
 }
 
@@ -85,27 +82,51 @@ header div h1 {
 
 main {
     position: relative;
-    padding: 0.5rem 0.4rem;
+    padding: 0.5rem 0.3rem;
     height: 100%;
     width: 100%;
-    z-index: -2;
+    display: flex;
+    gap: 0.2rem;
 }
 
-main ul {
-    background-color: rgb(33, 33, 33);
+main > ul {
+    background-color: transparent;
     list-style-type: none; 
     line-height: calc(100% + 3px);
     border-radius: 0.5rem;
     overflow: hidden;
     padding: 0%;
+    box-shadow: 0 0 1.5rem rgba(0,0,0,50%);
 }
 
-main li {
+
+main > ul > p {
     color: var(--textcolor1);
-    background-color: rgb(58, 58, 58);
-    padding: 0.18rem 1.4rem;
+    font-size: 1.2rem;
+    background-color: rgb(29, 144, 111);
+    text-align: center;
+    padding: 0.2rem 0.5rem 0.3rem 0.5rem;
 }
 
-main li:nth-child(even) {
-    background-color: rgb(76, 76, 76);
+main > ul > li {
+    color: var(--textcolor2);
+    background-color: rgb(44, 71, 64);
+    padding: 0.18rem 1.2rem 0.18rem 0.5rem;
+    opacity: 1;
 }
+
+main > ul > li:nth-child(even) {
+    background-color: rgb(36, 56, 51);
+}
+
+main > ul > li:hover {
+    background-color: rgb(51, 81, 74);
+    color: var(--textcolor1);
+    translate: 0.2rem 0px;
+    transition:translate 250ms ease-out;
+}
+
+main > ul > li:nth-child():hover {
+    background-color: rgb(54, 85, 77);
+}
+
