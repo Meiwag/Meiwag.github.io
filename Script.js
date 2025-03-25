@@ -8,7 +8,7 @@ fetch("Parts.json")
 
 let Sorted = []
 for (const Key in PartJson) {
-    Sorted.push(Key)
+    Sorted[Sorted.length] = Key
 }
 
 Sorted.sort()
