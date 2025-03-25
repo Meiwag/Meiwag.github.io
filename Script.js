@@ -5,8 +5,6 @@ function CreateListItem(Name) {
     const Link = document.createElement("a")
     const TextElement = document.createElement("p")
 
-    
-    Link.textContent = Name
     Link.href = "Parts/" + Name
     Link.target = "_blank"
     TextElement.textContent = Name
