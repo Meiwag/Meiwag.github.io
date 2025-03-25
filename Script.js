@@ -9,8 +9,9 @@ function AddPartsToList(PartJson) {
 
     Sorted.forEach(PartName => {
         const Element = document.createElement("li")
-        const Child = document.createElement("a")
-        Child.textContent = PartName
+        const Link = document.createElement("a")
+        Link.textContent = PartName
+        Link.href = PartName
         Element.appendChild(Child)
         PartList.appendChild(Element)
 
