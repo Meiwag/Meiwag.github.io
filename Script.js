@@ -1,11 +1,5 @@
-function AddPartsToList(params) {
+function AddPartsToList(PartJson) {
     const PartList = document.getElementById("part-list")
-    let PartJson
-
-    fetch("Parts.json")
-        .then(response => response.json()) // Parse the response
-        .then(data => PartJson = data)
-        .catch(error => console.error("Error fetching JSON: ", error));
 
     let Sorted = []
     for (const Key in PartJson) {
@@ -22,3 +16,7 @@ function AddPartsToList(params) {
         console.log("Added " + PartName + " to partlist")
     });
 }
+
+fetch("Parts.json")
+    .then(response => response.json()) // Parse the response
+    .then(data => AddPartsToList(data))
