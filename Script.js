@@ -17,4 +17,8 @@ Sorted.forEach( PartName => {
 
     Element.textContent = PartName
     PartList.appendChild(Element)
+
+    console.log("Added " + PartName + " to partlist")
 });
+
+console.log("Sorted: " + Sorted)
