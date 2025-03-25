@@ -4,10 +4,10 @@ function CreateListItem(Name) {
     const TextElement = document.createElement("p")
 
     
-    Link.textContent = PartName
-    Link.href = "Parts/" + PartName
+    Link.textContent = Name
+    Link.href = "Parts/" + Name
     Link.target = "_blank"
-    TextElement.textContent = PartName
+    TextElement.textContent = Name
 
     PartList.appendChild(ListItem)
     ListItem.appendChild(Link)
