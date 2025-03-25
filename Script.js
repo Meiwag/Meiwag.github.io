@@ -1,3 +1,5 @@
+var PartList
+
 function CreateListItem(Name) {
     const ListItem = document.createElement("li")
     const Link = document.createElement("a")
@@ -17,7 +19,7 @@ function CreateListItem(Name) {
 }
 
 function AddPartsToList(PartJson) {
-    var PartList = document.getElementById("part-list")
+    PartList = document.getElementById("part-list")
 
     let Sorted = []
     for (const Key in PartJson) {
