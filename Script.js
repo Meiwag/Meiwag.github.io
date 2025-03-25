@@ -3,10 +3,11 @@ function CreateListItem(Name) {
     const Link = document.createElement("a")
     const TextElement = document.createElement("p")
 
-    TextElement.textContent = PartName
+    
     Link.textContent = PartName
     Link.href = "Parts/" + PartName
     Link.target = "_blank"
+    TextElement.textContent = PartName
 
     PartList.appendChild(ListItem)
     ListItem.appendChild(Link)
@@ -24,19 +25,7 @@ function AddPartsToList(PartJson) {
     }
     Sorted.sort()
 
-    Sorted.forEach(PartName => {
-        const Element = document.createElement("li")
-        const Link = document.createElement("a")
-        const TextElement = document.createElement("p")
-
-        TextElement.textContent = PartName
-        Link.href = "Parts/" + PartName
-        Link.target = "_blank"
-        PartList.appendChild(Element)
-        Element.appendChild(Link)
-
-        console.log("Added " + PartName + " to partlist")
-    });
+    Sorted.forEach(PartName => CreateListItem(PartName));
 }
 
 fetch("Parts.json")
