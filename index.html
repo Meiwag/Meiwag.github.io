@@ -7,8 +7,34 @@
     <link rel="stylesheet" href="Style.css">
     <meta name="keywords" content="Astralis, Astralis game, Astralis roblox, roblox, game">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="Script.js"></script>
+    <script>
+        function AddPartsToList(params) {
+            const PartList = document.getElementById("part-list")
+            let PartJson
+
+            fetch("Parts.json")
+                .then(response => response.json()) // Parse the response
+                .then(data => PartJson = data)
+                .catch(error => console.error("Error fetching JSON: ", error));
+
+            let Sorted = []
+            for (const Key in PartJson) {
+                Sorted[Sorted.length] = Key
+            }
+            Sorted.sort()
+
+            Sorted.forEach(PartName => {
+                const Element = document.createElement("li")
+
+                Element.textContent = PartName
+                PartList.appendChild(Element)
+
+                console.log("Added " + PartName + " to partlist")
+            });
+        }
+    </script>
 </head>
+
 <body>
     <header>
         <div class="header-outline"></div>
@@ -46,10 +72,19 @@
 
         <script>AddPartsToList</script>
 
-        <div style="color: rgb(255, 201, 102); align-content: center; text-align: center; flex-grow: 1; flex-shrink: 1; padding: 15px; max-width: 20rem;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis ad a veritatis, ipsam accusamus quasi obcaecati inventore voluptatum ut ullam quisquam itaque beatae fuga alias doloribus voluptatibus. Illo, ipsum excepturi!</div>
-        <div style="color: rgb(206, 0, 0); align-content: center; text-align: center; flex-grow: 1; flex-shrink: 1; padding: 15px; max-width: 20rem;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis ad a veritatis, ipsam accusamus quasi obcaecati inventore voluptatum ut ullam quisquam itaque beatae fuga alias doloribus voluptatibus. Illo, ipsum excepturi!</div>
+        <div
+            style="color: rgb(255, 201, 102); align-content: center; text-align: center; flex-grow: 1; flex-shrink: 1; padding: 15px; max-width: 20rem;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis ad a veritatis, ipsam accusamus quasi
+            obcaecati inventore voluptatum ut ullam quisquam itaque beatae fuga alias doloribus voluptatibus. Illo,
+            ipsum excepturi!</div>
+        <div
+            style="color: rgb(206, 0, 0); align-content: center; text-align: center; flex-grow: 1; flex-shrink: 1; padding: 15px; max-width: 20rem;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis ad a veritatis, ipsam accusamus quasi
+            obcaecati inventore voluptatum ut ullam quisquam itaque beatae fuga alias doloribus voluptatibus. Illo,
+            ipsum excepturi!</div>
     </main>
 
-    
+
 </body>
+
 </html>
