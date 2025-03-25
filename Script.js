@@ -10,7 +10,9 @@ function CreateListItem(Name) {
 
     PartList.appendChild(ListItem)
     ListItem.appendChild(Link)
-    Link:appendChild(TextElement)
+    Link.appendChild(TextElement)
+
+    return ListItem
 }
 
 function AddPartsToList(PartJson) {
