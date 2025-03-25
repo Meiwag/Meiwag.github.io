@@ -2,6 +2,19 @@ const PartList = document.getElementById("part-list")
 let PartJson
 
 fetch("Parts.json")
-    .then(response => response.json()) // Parse the response
-    .then(data => PartJson = data)
-    .catch(error => console.error("Error fetching JSON: ", error));
+.then(response => response.json()) // Parse the response
+.then(data => PartJson = data)
+.catch(error => console.error("Error fetching JSON: ", error));
+
+let Sorted = []
+for (const Key in PartJson) {
+    Sorted.push(Key)
+}
+
+Sorted.sort()
+Sorted.forEach( PartName => {
+    const Element = document.createElement("li")
+
+    Element.textContent = PartName
+    PartList.appendChild(Element)
+});
