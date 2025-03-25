@@ -138,12 +138,14 @@ main>div {
     };
 
     &>li {
-        color: var(--textcolor2);
         background-color: rgb(44, 71, 64);
         padding: 0.18rem 1.2rem 0.18rem 0.5rem;
         opacity: 1;
 
-
+        &>a {
+            color: var(--textcolor2);
+            text-decoration: none;
+        }
 
         &:nth-child(even) {
             background-color: rgb(36, 56, 51);
@@ -155,12 +157,13 @@ main>div {
 
         &:hover {
             background-color: rgb(51, 81, 74);
-            color: var(--textcolor1);
             translate: 0.2rem 0px;
             transition: translate 250ms ease-out;
+
+            &>a{
+                color: var(--textcolor1);
+            }
         };
-
-
     };
 
 
