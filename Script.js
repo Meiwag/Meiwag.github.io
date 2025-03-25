@@ -12,8 +12,9 @@ function AddPartsToList(PartJson) {
         const Link = document.createElement("a")
         Link.textContent = PartName
         Link.href = PartName
-        Element.appendChild(Child)
+        Link.target = "_blank"
         PartList.appendChild(Element)
+        Element.appendChild(Link)
 
         console.log("Added " + PartName + " to partlist")
     });
