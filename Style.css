@@ -52,15 +52,16 @@ header {
 
     ;
 
-    & div {
+    & > a {
         position: absolute;
         height: 100%;
         display: flex;
+        text-decoration: none;
     }
 
     ;
 
-    & img {
+    & > a > img {
         height: 2rem;
         aspect-ratio: 1;
         padding: 0.16rem;
@@ -69,7 +70,7 @@ header {
 
     ;
 
-    & h1 {
+    & > a > h1 {
         color: var(--textcolor1);
         text-align: center;
         font-size: 1.5rem;
@@ -104,7 +105,7 @@ main {
     system: additive;
 }
 
-main>div {
+main > div {
     background-color: rgba(30, 62, 51, 0.3);
     line-height: calc(100% + 3px);
     border-radius: 0.5rem;
@@ -119,6 +120,7 @@ main>div {
     min-height: 8rem;
     flex-shrink: 1;
     flex-grow: 1;
+    font-size: 1.2rem;
 }
 
 #part-list {
@@ -129,7 +131,7 @@ main>div {
     max-height: 20rem;
     overflow-y: scroll;
 
-    &>p {
+    & > p {
         color: var(--textcolor1);
         font-size: 1.2rem;
         background-color: rgb(29, 144, 111);
@@ -137,12 +139,12 @@ main>div {
         padding: 0.2rem 0.5rem 0.3rem 0.5rem;
     };
 
-    &>li {
+    & > li {
         background-color: rgb(44, 71, 64);
         padding: 0.18rem 1.2rem 0.18rem 0.5rem;
         opacity: 1;
 
-        &>a {
+        & > a {
             color: var(--textcolor2);
             text-decoration: none;
         }
@@ -160,7 +162,7 @@ main>div {
             translate: 0.2rem 0px;
             transition: translate 250ms ease-out;
 
-            &>a{
+            & > a{
                 color: var(--textcolor1);
             }
         };
