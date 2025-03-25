@@ -10,8 +10,8 @@ let Sorted = []
 for (const Key in PartJson) {
     Sorted[Sorted.length] = Key
 }
-
 Sorted.sort()
+
 Sorted.forEach( PartName => {
     const Element = document.createElement("li")
 
@@ -20,5 +20,3 @@ Sorted.forEach( PartName => {
 
     console.log("Added " + PartName + " to partlist")
 });
-
-console.log("Sorted: " + Sorted)
