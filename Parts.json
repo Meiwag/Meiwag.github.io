@@ -1,0 +1,13 @@
+{
+    "Iron": {
+        "Description": "Material found inside the earths crust blah blah blah.."
+    },
+
+    "Gold": {
+        "Description": "Valuable material with good proeprties"
+    },
+
+    "NeutronDisuptor": {
+        "Description": "Can destroy neutron particles via accelerated molecular rifle ammo"
+    }
+}
