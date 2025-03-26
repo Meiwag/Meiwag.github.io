@@ -39,7 +39,11 @@ function SetPartAmount(Amount) {
 }
 
 function AssignDataToElements(Data) {
-    document.getElementById("version-label").textContent = Data.Version
+    console.log("Inputted data(json): "+Data)
+    let VersionLabel = document.getElementById("version-label")
+    console.log("VersionLabel: "+VersionLabel)
+    console.log("Version: "+Data.Version)
+    VersionLabel.textContent = Data.Version
 
 }
 
