@@ -1,5 +1,6 @@
 var PartList
 
+// Gets called by AddPartsToList
 function CreateListItem(Name) {
     const ListItem = document.createElement("li")
     const Link = document.createElement("a")
@@ -26,8 +27,20 @@ function AddPartsToList(PartJson) {
     Sorted.sort()
 
     Sorted.forEach(PartName => CreateListItem(PartName));
+
+    return Sorted
 }
+
+// Sets the number of an element in the html site to how many parts are in the game atm
+function SetPartAmount(Amount) {
+    let Element = document.getElementById("part-count")
+
+    Element.textContent = Amount
+}
+
 
 fetch("Parts.json")
     .then(response => response.json()) // Parse the response
     .then(data => AddPartsToList(data))
+    .then(array => SetPartAmount(array.length))
+
