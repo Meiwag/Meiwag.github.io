@@ -33,14 +33,21 @@ function AddPartsToList(PartJson) {
 
 // Sets the number of an element in the html site to how many parts are in the game atm
 function SetPartAmount(Amount) {
-    let Element = document.getElementById("part-count")
+    let Element = document.getElementById("part-label")
 
     Element.textContent = Amount
 }
 
+function AssignDataToElements(Data) {
+    document.getElementById("version-label").textContent = Data.Version
+
+}
 
 fetch("Parts.json")
-    .then(response => response.json()) // Parse the response
-    .then(data => AddPartsToList(data))
-    .then(array => SetPartAmount(array.length))
+    .then(Response => Response.json())
+    .then(Data => AddPartsToList(Data))
+    .then(Sorted => SetPartAmount(Sorted.length))
 
+fetch("GameData.json")
+    .then(Response => Response.json())
+    .then(Data => AssignDataToElements(Data))
